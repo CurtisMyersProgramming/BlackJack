@@ -16,4 +16,12 @@ public class Deck {
 
         }
     } //method to create full deck of cards
+
+    public void print(){
+        Deck.stream()
+                .forEach(card -> System.out.println(card));
+
+    } // method to print contents of deck
+
+
 }
