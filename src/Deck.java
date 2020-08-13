@@ -48,6 +48,63 @@ public class Deck {
         x.removeCard(0); // remove card from deck
     }
 
+    public int deckSize(){
+
+        return this.Deck.size();
+    }
+
+    public void addCard(Card addCard){
+        this.Deck.add(addCard);
+    }
+
+    public void  restore(){
+        this.Deck.clear();
+    }
+
+    public void moveallltodeck(Deck move){
+        int thisdecksize = this.Deck.size();
+        for( int i = 0; i < thisdecksize; i++){
+            move.addCard(this.getCard(i));
+        }
+    }
+
+    public int cardsValue(){
+        int totalvalue=0;
+        int aces = 0;
+
+        for(Card x: this.Deck){
+            switch(x.getValue()){
+                case TWO: totalvalue+=2; break;
+                case THREE: totalvalue+=3; break;
+                case FOUR: totalvalue+=4; break;
+                case FIVE: totalvalue+=5; break;
+                case SIX: totalvalue+=6;break;
+                case SEVEN: totalvalue+=7; break;
+                case EIGHT: totalvalue+=8; break;
+                case NINE: totalvalue+=9; break;
+                case TEN: totalvalue+=10; break;
+                case JACK: totalvalue+=10; break;
+                case QUEEN: totalvalue+=10; break;
+                case KING: totalvalue+=10; break;
+                case ACE: aces +=1; break;
+
+
+
+
+
+            }
+        }
+
+        for(int i = 0; i <aces ;i++){
+            if(totalvalue > 10){
+                totalvalue +=1;
+            } else {
+                totalvalue +=11;
+            }
+        }
+        return totalvalue;
+    }
+
     public String toString(){
         String cardoutout ="";
         int i = 0;
@@ -59,3 +116,5 @@ public class Deck {
         return cardoutout; // return results as a whole;
     }
 }
+
+
